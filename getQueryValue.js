@@ -5,7 +5,9 @@
 // (Hint: Use.split("=") which turns "A=B" into an array["A", "B"].Grab the second part).
 
 function getQueryValue(queryString) {
-    
+    let parser= queryString.split("=")
+    let secondPart=parser[1];
+    return secondPart;
 }
 
 // --- Test Cases ---
