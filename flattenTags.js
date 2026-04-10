@@ -5,8 +5,16 @@
 //     Hint: You will need a nested for loop.
 
 function flattenTags(tags) {
-
+    let newArr = [];
+    for (let i = 0; i < tags.length; i++) {
+        for (let j = 0; j < tags[i].length; j++) {
+            let inner=tags[i][j];
+            newArr.push(inner);
+        }
+    }
+    return newArr;
 }
+
 
 console.log(flattenTags([["js", "react"], ["node"], ["api", "db"]]));
 // Expected Output: ["js", "react", "node", "api", "db"]

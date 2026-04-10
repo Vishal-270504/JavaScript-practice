@@ -6,8 +6,15 @@
 //     Hint: Use a second array and check with .includes() before pushing.
 
 function removeDuplicates(ids) {
-   
+    let newArray = [];
+    for (let i = 0; i < ids.length; i++) {
+       if(!newArray.includes(ids[i])){
+        newArray.push(ids[i]);
+       }
+    }
+    return newArray;
 }
+
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
 // Expected Output: [1, 2, 3, 4]

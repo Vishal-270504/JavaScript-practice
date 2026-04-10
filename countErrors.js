@@ -5,7 +5,16 @@
 //     Hint: Check if a key already exists in the object before updating.
 
 function countErrors(errors) {
-
+    let result = {};
+    for (let i = 0; i < errors.length; i++) {
+        let count = errors[i];
+        if (result[count]) {
+            result[count] = result[count] + 1;
+        } else {
+            result[count] = 1;
+        }
+    }
+    return result;
 }
 
 console.log(countErrors(["404", "500", "404", "403", "500", "500"]));
