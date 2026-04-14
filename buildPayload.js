@@ -10,15 +10,15 @@
 // Hint: Dynamic key assignment.
 
 function buildPayload(formData) {
-    // create empty object result
+    let result = {};
+    for (let i = 0; i < formData.length; i++) {
+        let currentItem = formData[i];
+        let key = currentItem.field;
+        let name = currentItem.value;
 
-    // loop through formData
-    // get current item
-    // extract field and value
-
-    // assign result[field] = value
-
-    // return result
+        result[key] = name;
+    }
+    return result;
 }
 
 console.log(buildPayload([
