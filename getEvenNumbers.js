@@ -4,7 +4,13 @@
 // (Hint: Use the modulo operator %. If a number % 2 === 0, it is even).
 
 function getEvenNumbers(numbers) {
-    
+    let newArr=[];
+    for(let i=0;i<numbers.length;i++){
+        if (numbers[i]%2===0){
+            newArr.push(numbers[i]);
+        }
+    }
+    return newArr;
 }
 
 // --- Test Cases ---

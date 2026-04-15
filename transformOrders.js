@@ -12,21 +12,20 @@
 // Hint: Boolean comes from condition directly.
 
 function transformOrders(orders) {
-    // create empty result array
-
-    // loop through orders
-    // get current order
-
-    // extract id, userId, amount
-
-    // create new object:
-    // orderId → id
-    // user → userId
-    // isHighValue → amount > 100
-
-    // push into result
-
-    // return result
+    let result=[];
+    for(let i=0;i<orders.length;i++){
+        let currentOrders=orders[i];
+        let orderId =currentOrders.id;
+        let user=currentOrders.userId;
+        let isHighValue=currentOrders.amount>100;
+        let newObj={
+            orderId: orderId,
+            user: user,
+            isHighValue: isHighValue,
+        };   
+        result.push(newObj);
+    }
+    return result;
 }
 
 console.log(transformOrders([

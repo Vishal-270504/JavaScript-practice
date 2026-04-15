@@ -5,7 +5,12 @@
 // add them together, and use .toUpperCase() / .toLowerCase()).
 
 function capitalizeWord(word) {
+    let letters=word.toLowerCase();
+    let firstLetter = letters.charAt(0);
+    let two = firstLetter.toUpperCase();
+    return two + letters.slice(1);
     
+
 }
 
 // --- Test Cases ---

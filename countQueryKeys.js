@@ -6,7 +6,22 @@
 // Split twice: first by &, then by =.
 
 function countQueryKeys(queries) {
-    // your code
+    let obj={};
+    for(let i=0;i<queries.length;i++){
+        let firstSplit=queries[i].split("&");
+
+        for(let j=0;j<firstSplit.length;j++){
+            let secondSplit = firstSplit[j].split("=");
+            let key = secondSplit[0];
+            
+            if (!obj[key]) {
+                obj[key] = 1;
+            } else {
+                obj[key] = obj[key] + 1;
+            }
+        }
+    }
+    return obj;
 }
 
 console.log(countQueryKeys([

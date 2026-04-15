@@ -10,19 +10,17 @@
 // Hint: Return immediately when found.
 
 function firstDuplicate(arr) {
-    // create empty object seen
-
-    // loop through array
-    // get current number
-
-    // check if already in seen
-    // if yes → return number
-
-    // else mark it as seen
-
-    // return null
+    let seen = {};
+    for (let i = 0; i < arr.length; i++) {
+        let currentNum = arr[i];
+        if (seen[currentNum]) {
+            return currentNum;
+        } else {
+            seen[currentNum]=true;
+        }
+    }
+    return null;
 }
-
 console.log(firstDuplicate([1, 2, 3, 2, 4]));
 // Expected:
 // 2

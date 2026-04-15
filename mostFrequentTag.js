@@ -8,7 +8,25 @@
 // Return the tag with the highest count
 
 function mostFrequentTag(posts) {
-    // your code
+   let countMap={};
+   let maxCount=0;
+   let frequentTag=""; 
+   for (let i=0;i<posts.length; i++){
+    let tags =posts[i].tags;
+    for(let j=0;j<tags.length;j++){
+        let currentTag=tags[j];
+        if(!countMap[currentTag]){
+            countMap[currentTag]=1;
+        }else{
+            countMap[currentTag]=countMap[currentTag]+1;
+        }
+        if(countMap[currentTag]>maxCount){
+            maxCount=countMap[currentTag];
+            frequentTag=currentTag;
+        }
+    }
+   }
+   return frequentTag;
 }
 
 console.log(mostFrequentTag([
