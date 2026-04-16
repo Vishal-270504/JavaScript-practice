@@ -10,33 +10,29 @@
 // Hint: Use a temporary pointer to move inside object.
 
 function buildSettings(settings) {
-    let result={};
-    for(let i=0;i<settings.length;i++){
-        let getKey=settings[i].key;
-        let getValue=settings[i].value;
-        for(let j=0;j<getKey.length;j++){
-            let keySplit = getKey.split(".");
-            
-            
+    let result = {};
+
+    for (let i = 0; i < settings.length; i++) {
+        let parts = settings[i].key.split(".");
+        let value = settings[i].value;
+
+        let pointer = result;
+        let lastIndex = parts.length - 1;
+
+        for (let j = 0; j < lastIndex; j++) {
+            let part = parts[j];
+
+            if (!pointer[part]) {
+                pointer[part] = {};
+            }
+
+            pointer = pointer[part];
         }
+
+        pointer[parts[lastIndex]] = value;
     }
-    return 
 
-    // loop through settings
-    // get key and value
-
-    // split key by "."
-
-    // start from result object
-
-    // loop through parts of key
-    // if last part
-    // assign value
-    // else
-    // if key does not exist, create empty object
-    // move deeper into object
-
-    // return result
+    return result;
 }
 
 console.log(buildSettings([
