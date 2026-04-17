@@ -10,18 +10,19 @@
 // Hint: Same grouping pattern, but different key.
 
 function groupByDate(transactions) {
-    // create empty object result
-
-    // loop through transactions
-    // get current transaction
-    // extract date and amount
-
-    // check if date exists in result
-    // if not, create empty array
-
-    // push amount into result[date]
-
-    // return result
+    let obj={};
+    for(let i=0;i<transactions.length;i++){
+        let currentTransactions=transactions[i];
+        let currentDate= currentTransactions.date;
+        let currentAmount=currentTransactions.amount;
+        if(!obj[currentDate]){
+            obj[currentDate]=[];
+            (obj[currentDate]).push(currentAmount);
+        }else{
+            (obj[currentDate]).push(currentAmount);
+        }
+    }
+    return obj;
 }
 
 console.log(groupByDate([

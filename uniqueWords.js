@@ -10,17 +10,21 @@
 // Hint: Reuse seen - object pattern.
 
 function uniqueWords(sentences) {
-    // create empty object or array to track seen words
-    // create result array
+    let obj={};
+    let result=[];
 
-    // loop through sentences
-    // split sentence by space
+    for(let i=0;i<sentences.length;i++){
+        let cut=sentences[i].split(" ");
 
-    // loop through words
-    // check if word already seen
-    // if not, add to result and mark seen
-
-    // return result
+        for(let j=0;j<cut.length;j++){
+            let word=cut[j];
+            if (!obj[word]){
+                obj[word] = true;
+                result.push(word)
+            }
+        }
+    }
+    return result;
 }
 
 console.log(uniqueWords([
