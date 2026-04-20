@@ -8,18 +8,19 @@
 // Return array
 
 function sessionDurations(logs) {
-    // create empty result array
-
-    // loop through logs
-    // get login and logout
-
-    // calculate duration
-
-    // create new object { userId, duration }
-
-    // push into result
-
-    // return result
+    let result=[];
+    for(let i=0;i<logs.length;i++){
+        let getLogin=logs[i].login;
+        let getLogout=logs[i].logout;
+        let getUserId=logs[i].userId;
+        let duration=getLogout-getLogin;
+        let newObj={
+            userId: getUserId,
+            duration : duration,
+        }
+        result.push(newObj);
+    }
+    return result;
 }
 
 console.log(sessionDurations([
