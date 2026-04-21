@@ -7,16 +7,22 @@
 // Return that character
 
 function firstUniqueChar(str) {
-    // create empty object countMap
-
-    // loop through string
-    // count each character
-
-    // loop again through string
-    // if count is 1
-    // return that character
-
-    // return null
+    let countMap={};
+    for(let i=0;i<str.length;i++){
+        let char =str[i];
+        if(!countMap[char]){
+            countMap[char]=1;
+        }else{
+            countMap[char] = countMap[char]+1;
+        }
+    }
+    for(let i=0;i<str.length;i++){
+        let char = str[i];
+        if (countMap[char]===1){
+            return char;
+        }
+    }
+    return null;
 }
 
 console.log(firstUniqueChar("aabbcde"));
