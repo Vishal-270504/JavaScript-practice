@@ -8,21 +8,7 @@
 // Return array of root comments
 
 function buildCommentTree(comments) {
-    // create map object (id → comment object)
-    // create result array
 
-    // first loop
-    // store each comment in map
-    // add children = []
-
-    // second loop
-    // if parentId is null
-    // push into result
-    // else
-    // find parent in map
-    // push current comment into parent.children
-
-    // return result
 }
 
 console.log(buildCommentTree([
