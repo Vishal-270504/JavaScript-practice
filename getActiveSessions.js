@@ -12,41 +12,38 @@ function getActiveSessions(logs) {
     let result = [];
 
     for (let i = 0; i < logs.length; i++) {
-        let userId = logs[i].userId;
-        let action = logs[i].action;
-        
-        if (userMap[userId] === undefined) {
-            userMap[userId] = { login: 0, logout: 0 };
-        }
+        let getUserId = logs[i].userId;
+        let getAction = logs[i].action;
 
-        if (action === "login") {
-            userMap[userId].login = userMap[userId].login + 1;
-        } else if (action === "logout") {
-            userMap[userId].logout = userMap[userId].logout + 1;
+        if (getAction === "login") {
+            if (userMap[getUserId] === undefined) {
+                userMap[getUserId] = 1;
+            } else {
+                userMap[getUserId] = userMap[getUserId] + 1;
+            }
+        }
+        if (getAction === "logout") {
+            if (userMap[getUserId] !== undefined) {
+                userMap[getUserId] = userMap[getUserId] - 1;
+            }
         }
     }
-
-    for (let userId in userMap) {
-        let loginCount = userMap[userId].login;
-        let logoutCount = userMap[userId].logout;
-
-        if (loginCount > logoutCount) {
+    for (let getUserId in userMap) {
+        if (userMap[getUserId] > 0) {
             result.push({
-                userId: Number(userId),
-                activeSessions: loginCount - logoutCount
-            });
+                userId: Number(getUserId),
+                ActiveSessions: userMap[getUserId]
+            })
         }
     }
-
     return result;
 }
 
 console.log(getActiveSessions([
     { userId: 1, action: "login" },
-    { userId: 2, action: "logout" },
-    { userId: 1, action: "login" },
     { userId: 2, action: "login" },
     { userId: 1, action: "logout" },
+    { userId: 2, action: "login" }
 ]));
 
 // Expected:
