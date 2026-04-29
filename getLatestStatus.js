@@ -9,7 +9,19 @@
 
 function getLatestStatus(logs) {
     let result=[];
-    
+    let userMap={};
+    for (let i=0;i<logs.length;i++){
+        let getUserId=logs[i].userId;
+        let getStatus=logs[i].status;
+        userMap[getUserId]=getStatus;
+    }
+    for(let getUserId in userMap){
+        result.push({
+          userId: getUserId,
+          status: userMap[getUserId],
+        });
+    }
+    return result;
 }
 
 console.log(getLatestStatus([
