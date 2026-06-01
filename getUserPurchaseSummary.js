@@ -1,5 +1,6 @@
 // API Endpoint → User Purchase Summary (Validate + Group + Respond)
-// You are building a backend API endpoint that receives a list of purchase logs (req.body). Each log contains userId and amount. Some entries may be invalid (missing fields or negative amounts). You must validate input, aggregate total spend per user, and return a structured API response.
+// You are building a backend API endpoint that receives a list of purchase logs (req.body). Each log contains userId and amount. 
+// Some entries may be invalid (missing fields or negative amounts). You must validate input, aggregate total spend per user, and return a structured API response.
 
 // Task:
 // Read data from req.body
